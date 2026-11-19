@@ -306,7 +306,8 @@ codes, carrying the last plan forward, quarantining unknown orgs, how `dim_org`
 is versioned, and how MAU is calculated. AI suggested options and wrote code,
 and I chose between them.
 
-I read every line of code and documentation that AI produced, and I made sure
-
-I understood what it does and why before keeping it. I can walk through any
+I read every line of code and documentation that AI produced, and I made sure I understood what it does and why before keeping it. I can walk through any
 part of the pipeline and change it live.
+
+I also compared the final `mau.csv` against an independent recalculation from
+the raw files, and the two matched exactly.
