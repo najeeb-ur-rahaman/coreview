@@ -308,8 +308,5 @@ and I chose between them.
 
 I read every line of code and documentation that AI produced, and I made sure
 
-<!-- I understood what it does and why before keeping it. I can walk through any
-part of the pipeline and change it live. -->
-
-<!-- I also compared the final `mau.csv` against an independent recalculation from
-the raw files, and the two matched exactly. -->
+I understood what it does and why before keeping it. I can walk through any
+part of the pipeline and change it live.
