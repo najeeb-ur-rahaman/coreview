@@ -5,20 +5,20 @@ resources:
       tasks:
         - task_key: Bronze_ingestion
           notebook_task:
-            notebook_path: /Workspace/Users/<USER EMAIL>/coreview/landing_to_bronze
+            notebook_path: /Workspace/Users/<USER EMAIL>/coreview/Notebooks/landing_to_bronze
             source: WORKSPACE
           environment_key: Default
         - task_key: Silver_Ingestion
           depends_on:
             - task_key: Bronze_ingestion
           notebook_task:
-            notebook_path: /Workspace/Users/<USER EMAIL>/coreview/bronze_to_silver
+            notebook_path: /Workspace/Users/<USER EMAIL>/coreview/Notebooks/bronze_to_silver
             source: WORKSPACE
         - task_key: Gold_Ingestion
           depends_on:
             - task_key: Silver_Ingestion
           notebook_task:
-            notebook_path: /Workspace/Users/<USER EMAIL>/coreview/silver_to_gold
+            notebook_path: /Workspace/Users/<USER EMAIL>/coreview/Notebooks/silver_to_gold
             source: WORKSPACE
       queue:
         enabled: true

@@ -22,14 +22,14 @@ Outputs:
 Prerequisites: a Databricks workspace ([Free Edition / which one you used]) with
 Unity Catalog and Jobs available.
 
-1. Clone this repo into your workspace (Workspace → Create → Git folder).
+1. Clone this repo into your workspace (Workspace → Create → Git folder). Name the cloned repository 'coreview'.
 2. Upload the source files to the catalog 'workspace' by creating a volume called 'organizations_data'. To the following path :
    '/Volumes/workspace/default/organizations_data'.
    The source files are in the `data/` zip in the repo; unzip it first.
 3. Open `jobs.yaml` and replace the placeholder user email with your databricks account email.
 4. Go to Jobs & Pipelines → Create job, click the ⋮ menu → Edit as YAML,
-   and paste the contents of `jobs.yaml`.
-5. Run the job.
+   and replace the content present by pasting the contents of `jobs.yaml`.
+5. click save and Run the job.
 
 Outputs are written to [coreview.gold] schema.
 
@@ -54,8 +54,8 @@ Re-running: Every table in each layer is overwritten. so data is not appended. I
 
 | Layer            | Notebook          | What it does                                                                                | Tables / files                                                                |
 | ---------------- | ----------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| Landing → Bronze | landing_to_bronze | Reads the raw files as-is, all columns as strings, adds the and load time                   | crm_accounts, organizations, signins                                          |
-| Bronze → Silver  | bronze_to_silver  | Cleans, deduplicates and standardises; builds staging tables, rejects corrupted records     | crm_accounts, organizations, signins, signins_quarantine                      |
+| Landing → Bronze | landing_to_bronze | Reads the raw files as-is, all columns as strings, adds the Ingestion time                  | crm_accounts, organizations, signins                                          |
+| Bronze → Silver  | bronze_to_silver  | Cleans, deduplicates and standardises; builds clean tables, rejects corrupted records       | crm_accounts, organizations, signins, signins_quarantine                      |
 | Silver → Gold    | silver_to_gold    | Builds `dim_accounts`, `dim_organizations` , `fact_signins` and `mau` and writes the output | dim_accounts, dim_organizations, fact_signins, staging_org_attributes, vw_mau |
 
 Data flow: `organizations/*.jsonl`, `signins.csv` and `crm_accounts.csv` feed
