@@ -205,6 +205,11 @@ month, it gets one row per plan.
 5 of the 180 CRM accounts do not appear in `mau.csv`. They have no linked org
 or no successful sign-ins in the period.
 
+**Orgs that do not link to a CRM account**
+
+10 orgs (test tenants aside) do not link to any CRM account, so they are
+excluded from `mau.csv`. All 10 have an empty `crm_ref`.
+
 ## With more time, and at 1000x the volume
 
 ### With more time
